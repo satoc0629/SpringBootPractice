@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Top Page</title>
+</head>
+<script data-th-src="@{/top.js}"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        document.getElementById("inline").innerText = new Date().toString()
+    });
+</script>
+<body>
+<h1>Top</h1>
+<div data-th-text="${toDay}"></div>
+<h2>Form Post Test</h2>
+<form data-th-object="${topPageForm}" data-th-action="@{/top/sendMessage}" method="post">
+    <label for="message">Message</label>
+    <input id="message" type="text" data-th-field="*{message}"/>
+    <input type="submit" value="Send">
+</form>
+<h2>CSP Test Field</h2>
+<div>
+    <label>Inline Target</label>
+    <div id="inline"></div>
+    <label>JS File Target</label>
+    <div id="js"></div>
+</div>
+</body>
+</html>

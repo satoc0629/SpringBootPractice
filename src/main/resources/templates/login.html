@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<h1>Login</h1>
+<form data-th-object="${loginForm}" method="post" action="/login">
+    <label for="userId">UserId</label>
+    <input data-th-field="*{userId}" type="text" id="userId" tabindex="1"/>
+    <label for="password">Password</label>
+    <input data-th-field="*{password}" type="password" id="password" tabindex="2"/>
+    <input type="submit" value="Login"/>
+</form>
+</body>
+</html>
