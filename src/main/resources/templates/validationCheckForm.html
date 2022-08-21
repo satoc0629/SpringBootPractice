@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>FormSubmitTest</title>
+</head>
+<body>
+<form action="#" data-th-object="${validationCheckForm}" data-th-action="@{/ValidationCheck}" method="post">
+    <label for="name">Name</label>
+    <input id="name" type="text" data-th-field="*{name}"/>
+    <label data-th-errors="*{name}"></label>
+    <br />
+    <label for="age">Age</label>
+    <input id="age" type="number" data-th-field="*{age}"/>
+    <label data-th-errors="*{age}"></label>
+    <br />
+    <input type="submit" value="Send">
+</form>
+</body>
+</html>

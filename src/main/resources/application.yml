@@ -6,3 +6,4 @@ spring:
     password: dm
   thymeleaf:
     mode: HTML
+    cache: false

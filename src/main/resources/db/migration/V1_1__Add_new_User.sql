@@ -1,4 +1,6 @@
-create table user (
-    user varchar2,
-    password_hash varchar2
+create table "USER_DATA"
+(
+    "id"            BIGINT,
+    "user"          varchar2,
+    "password_hash" varchar2
 )

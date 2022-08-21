@@ -10,6 +10,14 @@ import java.time.LocalDate;
 
 @Controller
 public class TopController {
+
+    @GetMapping("/")
+    public String root(Model model) {
+        model.addAttribute("toDay", LocalDate.now().toString());
+        model.addAttribute("modelValue", "Model Value!!");
+        model.addAttribute("topPageForm", new TopPageForm());
+        return "top";
+    }
     @GetMapping("/top")
     public String top(Model model) {
         model.addAttribute("toDay", LocalDate.now().toString());
