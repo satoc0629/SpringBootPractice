@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html lang="ja">
-<head>
+<html lang="ja"
+      xmlns:layout="https://raw.githubusercontent.com/ultraq/thymeleaf-layout-dialect/main/thymeleaf-layout-dialect/source/nz/net/ultraq/thymeleaf/layoutdialect/LayoutDialect.xml"
+      layout:decorate="~{layout}"
+>
+<head th:replace="head :: common_header">
     <meta charset="UTF-8">
     <title>sentMessage</title>
 </head>
-<body>
-<div data-th-text="${sentMessage}"></div>
-</body>
+<th:block layout:fragment="content">
+    <h1>Received Message</h1>
+    <div data-th-text="${sentMessage}"></div>
+</th:block>
 </html>

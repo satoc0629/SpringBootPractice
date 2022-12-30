@@ -1,0 +1,1 @@
+alter table product add foreign key(type) references product_type(type_id);

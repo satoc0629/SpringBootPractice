@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html lang="ja">
-<head>
+<html lang="ja"
+      xmlns:layout="https://raw.githubusercontent.com/ultraq/thymeleaf-layout-dialect/main/thymeleaf-layout-dialect/source/nz/net/ultraq/thymeleaf/layoutdialect/LayoutDialect.xml"
+      layout:decorate="~{layout}">
+<head th:replace="head :: common_header">
     <meta charset="UTF-8">
     <title>Login</title>
 </head>
-<body>
-<h1>Login</h1>
-<form data-th-object="${loginForm}" method="post" action="/login">
-    <label for="userId">UserId</label>
-    <input data-th-field="*{userId}" type="text" id="userId" tabindex="1"/>
-    <label for="password">Password</label>
-    <input data-th-field="*{password}" type="password" id="password" tabindex="2"/>
-    <input type="submit" value="Login"/>
-</form>
-</body>
+<th:block layout:fragment="content">
+    <h1>Login</h1>
+    <form data-th-object="${loginForm}" method="post" action="/login">
+        <label data-th-if="${error} == true">Authentication Error</label><br/>
+        <input type="hidden" data-th-name="${_csrf.parameterName}" data-th-value="${_csrf.token}"/>
+        <label for="userId">UserId</label>
+        <input data-th-field="*{userId}" type="text" id="userId" tabindex="1"/>
+        <label for="password">Password</label>
+        <input data-th-field="*{password}" type="password" id="password" tabindex="2"/>
+        <input type="submit" value="Login"/>
+    </form>
+</th:block>
 </html>

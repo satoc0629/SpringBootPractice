@@ -4,6 +4,12 @@ spring:
     url: jdbc:h2:mem:demodb
     username: sa
     password: dm
+  session:
+    store-type: jdbc
   thymeleaf:
     mode: HTML
     cache: false
+logging.level:
+  org:
+    springframework:
+      security: INFO

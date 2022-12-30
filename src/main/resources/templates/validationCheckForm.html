@@ -1,20 +1,23 @@
 <!DOCTYPE html>
-<html lang="ja">
-<head>
+<html lang="ja"
+      xmlns:layout="https://raw.githubusercontent.com/ultraq/thymeleaf-layout-dialect/main/thymeleaf-layout-dialect/source/nz/net/ultraq/thymeleaf/layoutdialect/LayoutDialect.xml"
+      layout:decorate="~{layout}"
+>
+<head th:replace="head :: common_header">
     <meta charset="UTF-8">
     <title>FormSubmitTest</title>
 </head>
-<body>
-<form action="#" data-th-object="${validationCheckForm}" data-th-action="@{/ValidationCheck}" method="post">
-    <label for="name">Name</label>
-    <input id="name" type="text" data-th-field="*{name}"/>
-    <label data-th-errors="*{name}"></label>
-    <br />
-    <label for="age">Age</label>
-    <input id="age" type="number" data-th-field="*{age}"/>
-    <label data-th-errors="*{age}"></label>
-    <br />
-    <input type="submit" value="Send">
-</form>
-</body>
+<th:block layout:fragment="content">
+    <form action="#" data-th-object="${validationCheckForm}" data-th-action="@{/ValidationCheck}" method="post">
+        <label for="name">Name</label>
+        <input id="name" type="text" data-th-field="*{name}"/>
+        <label data-th-errors="*{name}"></label>
+        <br/>
+        <label for="age">Age</label>
+        <input id="age" type="number" data-th-field="*{age}"/>
+        <label data-th-errors="*{age}"></label>
+        <br/>
+        <input type="submit" value="Send">
+    </form>
+</th:block>
 </html>
