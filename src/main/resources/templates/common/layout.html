@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja"
+      xmlns:layout="https://raw.githubusercontent.com/ultraq/thymeleaf-layout-dialect/main/thymeleaf-layout-dialect/source/nz/net/ultraq/thymeleaf/layoutdialect/LayoutDialect.xml"
+      xmlns="http://www.w3.org/1999/html">
+<body class="container d-flex" data-bs-theme="light">
+<div class="col-3 me-3">
+    <h3>SideMenu</h3>
+    <div class="d-flex flex-column list-group">
+        <a class="link-info list-group-item list-group-item-action" data-th-href="@{/login}">Login</a>
+        <a class="link-info list-group-item list-group-item-action" data-th-href="@{/top}">Top</a>
+        <a class="link-info list-group-item list-group-item-action" data-th-href="@{/ValidationCheck}">ValidationCheck</a>
+        <a class="link-info list-group-item list-group-item-action" data-th-href="@{/products}">Products</a>
+    </div>
+</div>
+<div class="col-9">
+    <th:block layout:fragment="content"></th:block>
+</div>
+</body>
+</html>

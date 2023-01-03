@@ -1,1 +1,1 @@
-alter table product add foreign key(type) references product_type(type_id);
+alter table product add foreign key(type_id) references product_type(id);

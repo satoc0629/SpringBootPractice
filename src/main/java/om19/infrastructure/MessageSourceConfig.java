@@ -1,4 +1,4 @@
-package siersetup.infrastructure;
+package om19.infrastructure;
 
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;

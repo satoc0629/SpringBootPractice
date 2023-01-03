@@ -12,3 +12,12 @@ head.html
 layout.html
 ### css framework
 Bootstrap
+### csrf
+# JPA Repository
+# reference
+## Thymeleaf
+https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf_ja.html#thymeleaf%E3%81%AE%E7%B4%B9%E4%BB%8B
+## Bootstrap
+https://getbootstrap.com/docs/5.3/getting-started/introduction/
+### FlexBox
+https://css-tricks.com/snippets/css/a-guide-to-flexbox

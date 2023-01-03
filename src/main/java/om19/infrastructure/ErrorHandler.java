@@ -1,4 +1,4 @@
-package siersetup.infrastructure;
+package om19.infrastructure;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

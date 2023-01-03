@@ -1,21 +1,30 @@
 <!DOCTYPE html>
 <html lang="ja"
       xmlns:layout="https://raw.githubusercontent.com/ultraq/thymeleaf-layout-dialect/main/thymeleaf-layout-dialect/source/nz/net/ultraq/thymeleaf/layoutdialect/LayoutDialect.xml"
-      layout:decorate="~{layout}">
-<head th:replace="head :: common_header">
+      layout:decorate="~{common/layout}">
+<head th:replace="common/head :: common_header">
     <meta charset="UTF-8">
     <title>Login</title>
 </head>
 <th:block layout:fragment="content">
     <h1>Login</h1>
-    <form data-th-object="${loginForm}" method="post" action="/login">
-        <label data-th-if="${error} == true">Authentication Error</label><br/>
+    <form data-th-object="${loginForm}" method="post" action="/login" class="form-control">
+        <div data-th-if="${error} == true" class="alert alert-danger" role="alert">Authentication Error</div>
+        <br/>
         <input type="hidden" data-th-name="${_csrf.parameterName}" data-th-value="${_csrf.token}"/>
-        <label for="userId">UserId</label>
-        <input data-th-field="*{userId}" type="text" id="userId" tabindex="1"/>
-        <label for="password">Password</label>
-        <input data-th-field="*{password}" type="password" id="password" tabindex="2"/>
-        <input type="submit" value="Login"/>
+        <div class="flex-column mb-1">
+            <div class="d-flex justify-content-between mb-1">
+                <label for="userId" class="col">UserId</label>
+                <input data-th-field="*{userId}" type="text" id="userId" tabindex="1" class="col"/>
+            </div>
+            <div class="d-flex justify-content-between mb-1">
+                <label for="password" class="col">Password</label>
+                <input data-th-field="*{password}" type="password" id="password" tabindex="2" class="col"/>
+            </div>
+        </div>
+        <div class="row">
+            <input type="submit" value="Login" class="btn btn-primary col"/>
+        </div>
     </form>
 </th:block>
 </html>

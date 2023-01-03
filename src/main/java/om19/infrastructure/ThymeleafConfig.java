@@ -1,4 +1,4 @@
-package siersetup.infrastructure;
+package om19.infrastructure;
 
 import nz.net.ultraq.thymeleaf.layoutdialect.LayoutDialect;
 import org.springframework.context.annotation.Bean;
