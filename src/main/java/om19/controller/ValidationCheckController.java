@@ -24,7 +24,7 @@ import java.util.Set;
 public class ValidationCheckController {
     private final LocalValidatorFactoryBean localValidatorFactoryBean;
     private final Validator validator;
-    private final MessageSource messageSource2;
+    private final MessageSource validationMessageSource;
 
     @ModelAttribute
     public ValidationCheckForm validationCheckForm() {
@@ -39,7 +39,7 @@ public class ValidationCheckController {
     @PostMapping("/ValidationCheck")
     public String ValidationCheck(@ModelAttribute ValidationCheckForm form,
                                   BeanPropertyBindingResult bindingResult) {
-        localValidatorFactoryBean.setValidationMessageSource(messageSource2);
+        localValidatorFactoryBean.setValidationMessageSource(validationMessageSource);
         Set<ConstraintViolation<ValidationCheckForm>> result = localValidatorFactoryBean.validate(form);
         log.info("result.size:{}", result.size());
 
@@ -49,7 +49,7 @@ public class ValidationCheckController {
 
         validator.validate(form, bindingResult);
 
-        log.info("form:{}", form.toString());
+        log.info("form:{}", form);
         log.info("bindingResult.hasFieldErrors():{}", bindingResult.hasFieldErrors());
 
         if (bindingResult.hasErrors()) {
@@ -58,15 +58,13 @@ public class ValidationCheckController {
             bindingResult.getAllErrors().forEach(e ->
                     log.info(e.getObjectName() + ":" + e.getDefaultMessage()+":"+ Arrays.toString(e.getCodes())));
             log.info("--------------------------");
-            bindingResult.getFieldErrors().forEach(e -> {
-                log.info("{}:{}:{}:{}:{}:{}",
-                        e.getObjectName()
-                        , e.getField(),
-                        e.getDefaultMessage(),
-                        e.getCode(),
-                        e.getCodes(),
-                        e);
-            });
+            bindingResult.getFieldErrors().forEach(e -> log.info("{}:{}:{}:{}:{}:{}",
+                    e.getObjectName()
+                    , e.getField(),
+                    e.getDefaultMessage(),
+                    e.getCode(),
+                    e.getCodes(),
+                    e));
         }
 
         return "validationCheckForm";

@@ -9,13 +9,14 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
-public class MessageSourceConfig implements WebMvcConfigurer {
+public class MessageSourceConfig
+        implements WebMvcConfigurer {
     @Bean
-    public MessageSource messageSource2() {
+    public MessageSource validationMessageSource() {
         ReloadableResourceBundleMessageSource messageSource
                 = new ReloadableResourceBundleMessageSource();
 
-        messageSource.setBasename("ValidationMessages");
+        messageSource.setBasename("classpath:ValidationMessages");
         messageSource.setDefaultEncoding("UTF-8");
         return messageSource;
     }
@@ -23,7 +24,7 @@ public class MessageSourceConfig implements WebMvcConfigurer {
     @Bean
     public LocalValidatorFactoryBean validator() {
         LocalValidatorFactoryBean bean = new LocalValidatorFactoryBean();
-        bean.setValidationMessageSource(messageSource2());
+        bean.setValidationMessageSource(validationMessageSource());
         return bean;
     }
 
